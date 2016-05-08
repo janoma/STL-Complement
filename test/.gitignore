@@ -1,0 +1,6 @@
+stdc_unit_tests
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
