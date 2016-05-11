@@ -36,6 +36,29 @@ namespace stdc
 template <typename T, typename Compare = std::less<T>, typename... Rest>
 constexpr bool is_sorted(T first, T second, Rest... rest);
 
+/*!
+ * \brief Removes all elements from container that are equal to value.
+ *
+ * \post The size of the container is reduced by the number of elements that
+ * were removed.
+ *
+ * \return Past-the-end iterator after the elements are removed.
+ */
+template <typename Container>
+auto erase_remove(Container& container, typename Container::value_type const& value) -> typename Container::iterator;
+
+/*!
+ * \brief Removes all elements from container for which predicate p returns
+ * true.
+ *
+ * \post The size of the container is reduced by the number of elements that
+ * were removed.
+ *
+ * \return Past-the-end iterator after the elements are removed.
+ */
+template <typename Container, typename UnaryPredicate>
+auto erase_remove_if(Container& container, UnaryPredicate pred) -> typename Container::iterator;
+
 } /* namespace stdc */
 
 #include "bits/algorithm_impl.h"
