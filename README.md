@@ -30,5 +30,10 @@ compiling.
 Most utilities work with C++11, though a few things might require C++14, which
 is why I use it by default in the unit tests.
 
+There are some unit tests and a `CMakeLists` settings file. Still, I had to
+tweak my settings a lot and I'm a newbie in `cmake`, which means you will
+probably have to tweak the settings too until somebody with more experience
+helps me make the settings more generic.
+
 ## License
 MIT License, if only in the hope that somebody will actually use this.
