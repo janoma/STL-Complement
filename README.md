@@ -7,7 +7,7 @@ available.
 The namespace used for all utilities here is `stdc`, which keeps it short and
 reminds of the complement nature to the `std` namespace.
 
-## Example
+## Example: `constexpr is_sorted`
 Although C++14 introduced a `constexpr` version of the `operator()` in
 [`std::less`](http://en.cppreference.com/w/cpp/utility/functional/less), the
 [`is_sorted`](http://en.cppreference.com/w/cpp/algorithm/is_sorted) algorithm
@@ -20,6 +20,27 @@ works at compile time, provided that the compare object is `constexpr` as well.
 /*! A toy example. */
 static_assert(stdc::is_sorted(1, 2, 3, 4), "");
 static_assert(! stdc::is_sorted(1, 3, 2, 4), "");
+```
+
+## Example: the `erase_remove` idiom
+If you have ever used `std::remove` or `std::remove_if` in some `Container` followed by `Container::resize` and wished you could do it in one line, here is an alternative.
+
+```
+#include <stdc/algorithm.h>
+
+std::vector<int> numbers {0, 1, 2, 3, 2, 4, 2, 5};
+stdc::erase_remove(numbers, 2);
+/*! numbers is now {0, 1, 3, 4, 5} */
+```
+
+Following the names used in the STL, `remove` receives a `const&` to an element, while `remove_if` receives a unary predicate.
+
+```
+#include <stdc/algorithm.h>
+
+std::vector<int> numbers {0, 1, 2, 3, 2, 4, 2, 5};
+stdc::erase_remove_if(numbers, [](int const& i){ return i % 2 == 0; });
+/*! numbers is now {1, 3, 5} */
 ```
 
 ## Installation
