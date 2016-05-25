@@ -1,4 +1,4 @@
-stdc_unit_tests
+stdc_*_unit_tests
 CMakeCache.txt
 CMakeFiles
 CMakeScripts

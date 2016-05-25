@@ -31,34 +31,48 @@ namespace stdc
 
 template <typename Container>
 inline
-back_emplacer<Container>::back_emplacer(Container& c)
+back_emplacer_operator<Container>::back_emplacer_operator(Container& c)
 {
     mContainer = std::addressof(c);
 }
 
 template <typename Container>
 template <typename... Args>
-inline back_emplacer<Container>&
-back_emplacer<Container>::operator()(Args&&... args)
+inline back_emplacer_operator<Container>&
+back_emplacer_operator<Container>::operator()(Args&&... args)
 {
     mContainer->emplace_back(std::forward<Args>(args)...);
     return *this;
 }
 
 template <typename Container>
+inline back_emplacer_operator<Container>
+back_emplacer(Container& container)
+{
+    return back_emplacer_operator<Container>(container);
+}
+
+template <typename Container>
 inline
-front_emplacer<Container>::front_emplacer(Container& c)
+front_emplacer_operator<Container>::front_emplacer_operator(Container& c)
 {
     mContainer = std::addressof(c);
 }
 
 template <typename Container>
 template <typename... Args>
-inline front_emplacer<Container>&
-front_emplacer<Container>::operator()(Args&&... args)
+inline front_emplacer_operator<Container>&
+front_emplacer_operator<Container>::operator()(Args&&... args)
 {
     mContainer->emplace_front(std::forward<Args>(args)...);
     return *this;
+}
+
+template <typename Container>
+inline front_emplacer_operator<Container>
+front_emplacer(Container& container)
+{
+    return front_emplacer_operator<Container>(container);
 }
 
 } /* namespace stdc */

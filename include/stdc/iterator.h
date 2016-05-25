@@ -33,24 +33,30 @@ namespace stdc
  * \details The motivation is the usage of std::back_inserter in algorithms that
  * call push_back on an unncessary copy of an element. For example, if the
  * algorithm instantiates T t(args...), and then calls a back_inserter with t,
- * then the copy can be avoided by calling stdc::back_emplacer with args..., in
- * which case the element will be constructed in-place.
+ * then the copy can be avoided by calling stdc::back_emplacer_operator with
+ * args..., in which case the element will be constructed in-place.
  *
  * \note This is not a replacement for std::back_inserter, as it is not even an
  * iterator.
  */
 template <typename Container>
-class back_emplacer
+class back_emplacer_operator
 {
 public:
-    explicit back_emplacer(Container& container);
+    explicit back_emplacer_operator(Container& container);
 
     template <typename... Args>
-    back_emplacer<Container>& operator()(Args&&...);
+    back_emplacer_operator<Container>& operator()(Args&&...);
 
 private:
     Container* mContainer;
 };
+
+/*!
+ * \brief Creates a back_emplacer_operator for a container.
+ */
+template <typename Container>
+back_emplacer_operator<Container> back_emplacer(Container& container);
 
 /*!
  * \brief Function object that calls emplace_front() on the container for which
@@ -59,24 +65,30 @@ private:
  * \details The motivation is the usage of std::front_inserter in algorithms that
  * call push_front on an unncessary copy of an element. For example, if the
  * algorithm instantiates T t(args...), and then calls a front_inserter with t,
- * then the copy can be avoided by calling stdc::front_emplacer with args..., in
- * which case the element will be constructed in-place.
+ * then the copy can be avoided by calling stdc::front_emplacer_operator with
+ * args..., in which case the element will be constructed in-place.
  *
  * \note This is not a replacement for std::front_inserter, as it is not even an
  * iterator.
  */
 template <typename Container>
-class front_emplacer
+class front_emplacer_operator
 {
 public:
-    explicit front_emplacer(Container& container);
+    explicit front_emplacer_operator(Container& container);
 
     template <typename... Args>
-    front_emplacer<Container>& operator()(Args&&...);
+    front_emplacer_operator<Container>& operator()(Args&&...);
 
 private:
     Container* mContainer;
 };
+
+/*!
+ * \brief Creates a front_emplacer_operator for a container.
+ */
+template <typename Container>
+front_emplacer_operator<Container> front_emplacer(Container& container);
 
 } /* namespace stdc */
 

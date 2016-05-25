@@ -1,5 +1,5 @@
 #define BOOST_TEST_DYN_LINK
-#define BOOST_TEST_MAIN STDC Test Suite
+#define BOOST_TEST_MAIN STDC Algorithm Test Suite
 
 #include <boost/test/unit_test.hpp>
 
@@ -10,9 +10,7 @@
 
 #include <stdc/algorithm.h>
 
-BOOST_AUTO_TEST_SUITE( STDC_Test_Suite )
-
-BOOST_AUTO_TEST_SUITE( Algorithm_Test_Suite )
+BOOST_AUTO_TEST_SUITE( STDC_Algorithm_Test_Suite )
 
 BOOST_AUTO_TEST_CASE( Is_Sorted_Unary_Test_Cases )
 {
@@ -65,6 +63,4 @@ BOOST_AUTO_TEST_CASE( Erase_Remove_If )
     BOOST_CHECK_EQUAL_COLLECTIONS(std::begin(numbers), end, std::begin(expected), std::end(expected));
 }
 
-BOOST_AUTO_TEST_SUITE_END( /* Algorithm_Test_Suite */ )
-
-BOOST_AUTO_TEST_SUITE_END( /* STDC_Test_Suite */ )
+BOOST_AUTO_TEST_SUITE_END( /* STDC_Algorithm_Test_Suite */ )
