@@ -1,8 +1,6 @@
 language: cpp
 
-script: cmake
-
-# Test matrix
+# Test matrix (TODO: add clang)
 matrix:
   include:
     # Test GCC 5 with C++14
@@ -24,3 +22,7 @@ before_install:
 install:
   - sudo apt-get update -qq
   - sudo apt-get install libboost-timer-dev libboost-chrono-dev libboost-system-dev libboost-test-dev
+
+before_script: cmake -D CMAKE_CXX_COMPILER=g++-5 .
+
+script: make && make test
