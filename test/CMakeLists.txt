@@ -1,7 +1,3 @@
-cmake_minimum_required(VERSION 3.0)
-
-project(stdc_tests)
-
 add_definitions(-Wall -Werror -Wextra -std=c++14)
 
 set(STDC_INCLUDE_DIR ../include)

@@ -26,3 +26,12 @@
 *.exe
 *.out
 *.app
+
+# CMake files
+CMakeCache.txt
+CMakeFiles
+Makefile
+CMakeScripts
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/*

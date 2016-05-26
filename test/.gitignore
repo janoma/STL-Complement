@@ -1,6 +1,4 @@
 stdc_*_unit_tests
-CMakeCache.txt
 CMakeFiles
-CMakeScripts
 Makefile
-cmake_install.cmake
+tcmake_install.cmake
