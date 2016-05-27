@@ -22,6 +22,14 @@ static_assert(stdc::is_sorted(1, 2, 3, 4), "");
 static_assert(! stdc::is_sorted(1, 3, 2, 4), "");
 ```
 
+For C++11 users, a `constexpr` version of `less` is part of this library.
+
+```
+#include <stdc/functional.h>
+
+constexpr bool smaller = stdc::less<int>()(10, 20); /*! true */
+```
+
 ## Example: the `erase_remove` idiom
 If you have ever used `std::remove` or `std::remove_if` in some `Container` followed by `Container::resize` and wished you could do it in one line, here is an alternative.
 
@@ -48,13 +56,15 @@ This is a header-only library, so just copy or link the `include` directory to
 an appropriate location, and remember to add it to your `-I` options when
 compiling.
 
-Most utilities work with C++11, though a few things might require C++14, which
-is why I use it by default in the unit tests.
+You can run the unit tests by creating the Makefiles with CMake first:
 
-There are some unit tests and a `CMakeLists` settings file. Still, I had to
-tweak my settings a lot and I'm a newbie in `cmake`, which means you will
-probably have to tweak the settings too until somebody with more experience
-helps me make the settings more generic.
+```
+$ git clone https://github.com/janoma/STL-Complement.git
+$ cd STL-Complement
+$ cmake .
+$ make
+$ make test
+```
 
 ## License
 MIT License, if only in the hope that somebody will actually use this.
