@@ -23,7 +23,7 @@
 #ifndef __STD_COMPLEMENT_ALGORITHM_H
 #define __STD_COMPLEMENT_ALGORITHM_H
 
-#include <functional>
+#include "functional.h"
 
 namespace stdc
 {
@@ -31,9 +31,9 @@ namespace stdc
 /*!
  * \brief Checks if the elements [first,second,rest...] are sorted in
  * non-descending order according to the Compare criteria, which defaults to
- * std::less.
+ * stdc::less<T>.
  */
-template <typename T, typename Compare = std::less<T>, typename... Rest>
+template <typename T, typename Compare = stdc::less<T>, typename... Rest>
 constexpr bool is_sorted(T first, T second, Rest... rest);
 
 /*!

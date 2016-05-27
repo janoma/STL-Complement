@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE( Is_Sorted_Unary_Test_Cases )
     BOOST_CHECK(stdc::is_sorted<std::uint32_t>(0));
 
     /*! Most vexing parse. Need two parentheses. */
-    BOOST_CHECK((stdc::is_sorted<int, std::greater<int>>(0)));
+    BOOST_CHECK((stdc::is_sorted<int, stdc::greater<int>>(0)));
 
     BOOST_CHECK(stdc::is_sorted(0L));
 }
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE( Is_Sorted_Nary_Test_Cases )
     BOOST_CHECK(stdc::is_sorted<char>('A', 'H', 'I', 'J', 'U', 'n'));
 
     /*! Most vexing parse. Need two parentheses. */
-    BOOST_CHECK((stdc::is_sorted<std::uint32_t, std::greater<std::uint32_t>>(100, 10, 2, 1, 0)));
+    BOOST_CHECK((stdc::is_sorted<std::uint32_t, stdc::greater<std::uint32_t>>(100, 10, 2, 1, 0)));
 
     BOOST_CHECK((stdc::is_sorted<double>(0L, std::numeric_limits<double>::min(), 1L, std::numeric_limits<double>::max())));
 }
@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE( Erase_Remove )
 BOOST_AUTO_TEST_CASE( Erase_Remove_If )
 {
     std::vector<int> numbers {1, 2, 5, 5, 4, 5, 9, 8, 13, 5, 20, 5};
-    auto end = stdc::erase_remove_if(numbers, [](auto const& val){ return val % 2 == 0; });
+    auto end = stdc::erase_remove_if(numbers, [](int const& val){ return val % 2 == 0; });
     BOOST_CHECK_EQUAL(numbers.size(), 8U);
     BOOST_REQUIRE(end == std::end(numbers));
 
