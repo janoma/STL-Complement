@@ -35,3 +35,6 @@ CMakeScripts
 cmake_install.cmake
 CTestTestfile.cmake
 Testing/*
+
+" YouCompleteMe
+.ycm_extra_conf.pyc
