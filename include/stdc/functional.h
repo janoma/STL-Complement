@@ -33,6 +33,10 @@ namespace stdc
 template <typename T>
 struct less
 {
+    using result_type = bool;
+    using first_argument_type = T;
+    using second_argument_type = T;
+
     constexpr bool operator()(T const& lhs, T const& rhs) const;
 };
 
@@ -43,6 +47,10 @@ struct less
 template <typename T>
 struct greater
 {
+    using result_type = bool;
+    using first_argument_type = T;
+    using second_argument_type = T;
+
     constexpr bool operator()(T const& lhs, T const& rhs) const;
 };
 
