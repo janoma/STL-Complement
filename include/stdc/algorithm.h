@@ -48,8 +48,8 @@ template <typename Container>
 auto erase_remove(Container& container, typename Container::value_type const& value) -> typename Container::iterator;
 
 /*!
- * \brief Removes all elements from container for which predicate p returns
- * true.
+ * \brief Removes all elements from container for which predicate pred
+ * returns true.
  *
  * \post The size of the container is reduced by the number of elements that
  * were removed.

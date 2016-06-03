@@ -43,6 +43,8 @@ template <typename Container>
 class back_emplacer_operator
 {
 public:
+    using container_type = Container;
+
     explicit back_emplacer_operator(Container& container);
 
     template <typename... Args>
@@ -75,6 +77,8 @@ template <typename Container>
 class front_emplacer_operator
 {
 public:
+    using container_type = Container;
+
     explicit front_emplacer_operator(Container& container);
 
     template <typename... Args>
