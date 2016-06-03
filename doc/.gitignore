@@ -1,0 +1,6 @@
+# Makefiles
+Makefile
+make.bat
+
+# Build directory (builds automatically in readthedocs.io)
+_build
