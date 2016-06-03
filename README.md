@@ -73,3 +73,5 @@ $ make test
 
 ## License
 MIT License, if only in the hope that somebody will actually use this.
+
+[//]: # ( vim: set nofoldenable: )
