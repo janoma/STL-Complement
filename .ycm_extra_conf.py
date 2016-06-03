@@ -31,18 +31,10 @@
 import os
 import ycm_core
 
-# These are the compilation flags that will be used in case there's no
-# compilation database set (by default, one is not set).
-# CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
-'-Wc++98-compat',
-'-Wno-long-long',
-'-Wno-variadic-macros',
-'-fexceptions',
-'-DNDEBUG',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
 # headers will be compiled as C headers. You don't want that so ALWAYS specify
@@ -183,3 +175,4 @@ def FlagsForFile( filename, **kwargs ):
     'flags': final_flags,
     'do_cache': True
   }
+
