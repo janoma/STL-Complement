@@ -35,9 +35,23 @@ less<T>::operator()(T const& lhs, T const& rhs) const
 
 template <typename T>
 inline constexpr bool
+less_equal<T>::operator()(T const& lhs, T const& rhs) const
+{
+    return lhs <= rhs;
+}
+
+template <typename T>
+inline constexpr bool
 greater<T>::operator()(T const& lhs, T const& rhs) const
 {
     return lhs > rhs;
+}
+
+template <typename T>
+inline constexpr bool
+greater_equal<T>::operator()(T const& lhs, T const& rhs) const
+{
+    return lhs >= rhs;
 }
 
 } /* namespace stdc */

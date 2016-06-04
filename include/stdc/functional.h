@@ -42,10 +42,38 @@ struct less
 
 /*!
  * \brief Function object for performing comparisons. Unless specialized,
+ * invokes operator<= on type T.
+ */
+template <typename T>
+struct less_equal
+{
+    using result_type = bool;
+    using first_argument_type = T;
+    using second_argument_type = T;
+
+    constexpr bool operator()(T const& lhs, T const& rhs) const;
+};
+
+/*!
+ * \brief Function object for performing comparisons. Unless specialized,
  * invokes operator> on type T.
  */
 template <typename T>
 struct greater
+{
+    using result_type = bool;
+    using first_argument_type = T;
+    using second_argument_type = T;
+
+    constexpr bool operator()(T const& lhs, T const& rhs) const;
+};
+
+/*!
+ * \brief Function object for performing comparisons. Unless specialized,
+ * invokes operator>= on type T.
+ */
+template <typename T>
+struct greater_equal
 {
     using result_type = bool;
     using first_argument_type = T;
