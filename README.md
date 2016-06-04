@@ -1,4 +1,4 @@
-# C++ STL Complement [![Build Status](https://travis-ci.org/janoma/STL-Complement.svg?branch=master)](https://travis-ci.org/janoma/STL-Complement)
+# C++ STL Complement [![Build Status](https://travis-ci.org/janoma/STL-Complement.svg?branch=master)](https://travis-ci.org/janoma/STL-Complement) [![Documentation Status](https://readthedocs.org/projects/stl-complement/badge/?version=latest)](http://stl-complement.readthedocs.io/en/latest/?badge=latest)
 A few **small** goodies I wish were part of the Standard Template Library. It is not
 intended to contain complex algorithms that would be candidates for
 [Boost](http://www.boost.org/) or other libraries, just small variations, adaptations
