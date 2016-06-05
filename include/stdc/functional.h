@@ -90,7 +90,7 @@ struct less_than
     using result_type = bool;
     using argument_type = T;
 
-    explicit less_than(T && pivot, Compare compare = Compare());
+    explicit less_than(T const& pivot, Compare compare = Compare());
 
     bool operator()(T const& value) const;
 
@@ -105,7 +105,7 @@ struct greater_than
     using result_type = bool;
     using argument_type = T;
 
-    explicit greater_than(T const& t, Compare compare = Compare());
+    explicit greater_than(T const& pivot, Compare compare = Compare());
 
     bool operator()(T const& value) const;
 

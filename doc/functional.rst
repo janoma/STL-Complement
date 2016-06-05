@@ -74,7 +74,7 @@ Functional
    returns ``true`` for elements that are less than the pivot, and ``false``
    otherwise.
 
-   .. cpp:function:: explicit less_than(T && pivot, Compare compare = Compare())
+   .. cpp:function:: explicit less_than(T const& pivot, Compare compare = Compare())
 
       Constructor. Saves a copy of the pivot in ``m_pivot`` and a copy of the
       compare object in ``m_compare``.
@@ -98,7 +98,7 @@ Functional
    returns ``true`` for elements that are greater than the pivot, and ``false``
    otherwise.
 
-   .. cpp:function:: explicit greater_than(T && pivot, Compare compare = Compare())
+   .. cpp:function:: explicit greater_than(T const& pivot, Compare compare = Compare())
 
       Constructor. Saves a copy of the pivot in ``m_pivot`` and a copy of the
       compare object in ``m_compare``.
