@@ -114,3 +114,25 @@ Functional
    .. cpp:member:: protected T m_pivot
 
    .. cpp:member:: protected Compare m_compare
+
+.. cpp:class:: template <typename T> \
+               equal_to
+
+   Unary predicate that is constructed with a given *pivot* element and then
+   returns ``true`` for elements that compare equal to the pivot.
+
+   .. cpp:function:: explicit equal_to
+
+      Constructor. Saves a copy of the pivot in ``m_pivot``.
+
+   .. cpp:function:: template <typename U> \
+                     bool operator()(U const& value) const
+
+      Returns the value of evaluating ``std::equal_to<T>(value, m_pivot)``.
+      ``value`` is implicitly converted to type ``T``.
+
+   .. cpp:type:: result_type = bool
+
+   .. cpp:type:: argument_type = T
+
+   .. cpp:member:: protected T m_pivot

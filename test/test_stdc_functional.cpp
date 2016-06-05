@@ -85,4 +85,16 @@ BOOST_AUTO_TEST_CASE( Greater_Than_Test_Cases )
     BOOST_CHECK(compare(10));
 }
 
+BOOST_AUTO_TEST_CASE( Equal_To_Test_Cases )
+{
+    auto compare = stdc::equal_to<int>(3);
+
+    BOOST_CHECK(not compare(-10));
+    BOOST_CHECK(not compare(-1));
+    BOOST_CHECK(not compare(0));
+    BOOST_CHECK(compare(3));
+    BOOST_CHECK(compare(3.14l));
+    BOOST_CHECK(compare(3.14L));
+}
+
 BOOST_AUTO_TEST_SUITE_END( /* STDC_Functional_Test_Suite */ )

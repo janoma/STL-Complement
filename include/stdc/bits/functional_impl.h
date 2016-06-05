@@ -83,6 +83,21 @@ greater_than<T, Compare>::operator()(T const& value) const
     return m_compare(value, m_pivot);
 }
 
+template <typename T>
+inline
+equal_to<T>::equal_to(T const& pivot)
+    : m_pivot(pivot)
+{
+}
+
+template <typename T>
+template <typename U>
+inline bool
+equal_to<T>::operator()(U const& value) const
+{
+    return std::equal_to<T>()(value, m_pivot);
+}
+
 } /* namespace stdc */
 
 #endif /* __STD_COMPLEMENT_FUNCTIONAL_IMPL */

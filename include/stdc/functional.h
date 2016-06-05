@@ -114,6 +114,21 @@ protected:
     const Compare m_compare;
 };
 
+template <typename T>
+struct equal_to
+{
+    using result_type = bool;
+    using argument_type = T;
+
+    explicit equal_to(T const& pivot);
+
+    template <typename U>
+    bool operator()(U const& value) const;
+
+protected:
+    const T m_pivot;
+};
+
 } /* namespace stdc */
 
 #include "bits/functional_impl.h"
