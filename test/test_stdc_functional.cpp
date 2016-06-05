@@ -63,4 +63,26 @@ BOOST_AUTO_TEST_CASE( Greater_Equal_Test_Cases )
     BOOST_CHECK(not greater_equal(-1, 1));
 }
 
+BOOST_AUTO_TEST_CASE( Less_Than_Test_Cases )
+{
+    auto compare = stdc::less_than<int>(0);
+
+    BOOST_CHECK(compare(-10));
+    BOOST_CHECK(compare(-1));
+    BOOST_CHECK(not compare(0));
+    BOOST_CHECK(not compare(1));
+    BOOST_CHECK(not compare(10));
+}
+
+BOOST_AUTO_TEST_CASE( Greater_Than_Test_Cases )
+{
+    auto compare = stdc::greater_than<int>(0);
+
+    BOOST_CHECK(not compare(-10));
+    BOOST_CHECK(not compare(-1));
+    BOOST_CHECK(not compare(0));
+    BOOST_CHECK(compare(1));
+    BOOST_CHECK(compare(10));
+}
+
 BOOST_AUTO_TEST_SUITE_END( /* STDC_Functional_Test_Suite */ )

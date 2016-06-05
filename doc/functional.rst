@@ -66,3 +66,51 @@ Functional
    .. cpp:type:: first_argument_type = T
 
    .. cpp:type:: second_argument_type = T
+
+.. cpp:class:: template <typename T, typename Compare = std::less<T>> \
+               less_than
+
+   Unary predicate that is constructed with a given *pivot* element and then
+   returns ``true`` for elements that are less than the pivot, and ``false``
+   otherwise.
+
+   .. cpp:function:: explicit less_than(T && pivot, Compare compare = Compare())
+
+      Constructor. Saves a copy of the pivot in ``m_pivot`` and a copy of the
+      compare object in ``m_compare``.
+
+   .. cpp:function:: bool operator()(T const& value) const
+
+      Returns the value of evaluating ``m_compare(value, m_pivot)``.
+
+   .. cpp:type:: result_type = bool
+
+   .. cpp:type:: argument_type = T
+
+   .. cpp:member:: protected T m_pivot
+
+   .. cpp:member:: protected Compare m_compare
+
+.. cpp:class:: template <typename T, typename Compare = std::greater<T>> \
+               greater_than
+
+   Unary predicate that is constructed with a given *pivot* element and then
+   returns ``true`` for elements that are greater than the pivot, and ``false``
+   otherwise.
+
+   .. cpp:function:: explicit greater_than(T && pivot, Compare compare = Compare())
+
+      Constructor. Saves a copy of the pivot in ``m_pivot`` and a copy of the
+      compare object in ``m_compare``.
+
+   .. cpp:function:: bool operator()(T const& value) const
+
+      Returns the value of evaluating ``m_compare(value, m_pivot)``.
+
+   .. cpp:type:: result_type = bool
+
+   .. cpp:type:: argument_type = T
+
+   .. cpp:member:: protected T m_pivot
+
+   .. cpp:member:: protected Compare m_compare

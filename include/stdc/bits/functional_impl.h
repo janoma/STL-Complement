@@ -23,6 +23,8 @@
 #ifndef __STD_COMPLEMENT_FUNCTIONAL_IMPL
 #define __STD_COMPLEMENT_FUNCTIONAL_IMPL
 
+#include <utility>
+
 namespace stdc
 {
 
@@ -52,6 +54,34 @@ inline constexpr bool
 greater_equal<T>::operator()(T const& lhs, T const& rhs) const
 {
     return lhs >= rhs;
+}
+
+template <typename T, typename Compare>
+inline
+less_than<T, Compare>::less_than(T && pivot, Compare compare)
+    : m_pivot(std::forward<T>(pivot)), m_compare(compare)
+{
+}
+
+template <typename T, typename Compare>
+inline bool
+less_than<T, Compare>::operator()(T const& value) const
+{
+    return m_compare(value, m_pivot);
+}
+
+template <typename T, typename Compare>
+inline
+greater_than<T, Compare>::greater_than(T const& t, Compare compare)
+    : m_pivot(t), m_compare(compare)
+{
+}
+
+template <typename T, typename Compare>
+inline bool
+greater_than<T, Compare>::operator()(T const& value) const
+{
+    return m_compare(value, m_pivot);
 }
 
 } /* namespace stdc */

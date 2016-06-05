@@ -23,6 +23,8 @@
 #ifndef __STD_COMPLEMENT_FUNCTIONAL_H
 #define __STD_COMPLEMENT_FUNCTIONAL_H
 
+#include <functional>
+
 namespace stdc
 {
 
@@ -80,6 +82,36 @@ struct greater_equal
     using second_argument_type = T;
 
     constexpr bool operator()(T const& lhs, T const& rhs) const;
+};
+
+template <typename T, typename Compare = std::less<T>>
+struct less_than
+{
+    using result_type = bool;
+    using argument_type = T;
+
+    explicit less_than(T && pivot, Compare compare = Compare());
+
+    bool operator()(T const& value) const;
+
+protected:
+    const T m_pivot;
+    const Compare m_compare;
+};
+
+template <typename T, typename Compare = std::greater<T>>
+struct greater_than
+{
+    using result_type = bool;
+    using argument_type = T;
+
+    explicit greater_than(T const& t, Compare compare = Compare());
+
+    bool operator()(T const& value) const;
+
+protected:
+    const T m_pivot;
+    const Compare m_compare;
 };
 
 } /* namespace stdc */
