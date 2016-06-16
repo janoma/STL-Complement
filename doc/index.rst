@@ -14,6 +14,7 @@ Contents:
 .. toctree::
 
    algorithm
+   dynamic_array
    functional
    iterator
 
